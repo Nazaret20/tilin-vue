@@ -1,12 +1,48 @@
-<script setup></script>
+<script setup>
+
+
+import { ref, onMounted } from 'vue'
+
+const isDark = ref(true)
+
+const toggleTheme = (event) => {
+  isDark.value = event.target.checked
+  updateTheme()
+}
+
+const updateTheme = () => {
+  if (isDark.value) {
+    document.documentElement.classList.add('dark')
+    localStorage.setItem('theme', 'dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+    localStorage.setItem('theme', 'light')
+  }
+}
+
+onMounted(() => {
+  const saved = localStorage.getItem('theme')
+  if (saved === 'light') {
+    isDark.value = false
+  } else {
+    isDark.value = true // modo oscuro por defecto
+  }
+  updateTheme()
+})
+</script>
 
 <template>
-	<div class="theme-toggle">
-		<input type="checkbox" id="toggle-theme" />
-		<label for="toggle-theme">
-			<span class="moonSun"></span>
-		</label>
-	</div>
+	 <div class="theme-toggle">
+    <input
+      type="checkbox"
+      id="toggle-theme"
+      :checked="isDark"
+      @change="toggleTheme"
+    />
+    <label for="toggle-theme">
+      <span class="moonSun"></span>
+    </label>
+  </div>
 </template>
 
 <style scope>

@@ -15,11 +15,11 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	padding: 1rem;
 }
 
 h1 {
-	font-size: 2.4rem;
-	color: var(--blue);
+	font-size: 3rem;
 	margin-bottom: 1rem;
 	text-align: center;
 }

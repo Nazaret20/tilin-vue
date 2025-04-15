@@ -1,58 +1,71 @@
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
 
-  color-scheme: light dark;
-  color: #ffffffde;
-  background-color: #1d424b;
+	color-scheme: light dark;
+	background-color: #1d424b;
 
+	--moonSun: #ffd427;
 
-  --text: #ebebeb;
-  --pink: #ffa3bf;
-  --blue: #76c3f0;
-  --violet: #a29bfe;
-  --yellow: #ffeaa7;
-  --green: #b7eab5;
-  --bg-input: #81d1ff;
-  --moonSun: #ffd427;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
+:root,
+.dark {
+	color: #ffffffde;
+	--bg-window: #32626e;
+	--bg-card: #3f7d8d;
+	--bg-input: #4b93a5;
+	--secondary-text: #bebebe;
+	--border: #bebebe6c;
+}
+
+.light {
+	color: #333333;
+	--secondary-text: #666666;
+	--bg-window: #ffa3bf;
+	--bg-card: #76c3f0;
+	--bg-input: #a29bfe;
+	--border: #ffeaa7;
+  }
+
 html {
-  font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 100vh;
+	background-color: var(--bg-window);
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #app {
-  width: 80rem;
-  height: 100%;
-  text-align: center;
-  border: 2px solid;
+	width: 85rem;
+	height: 100%;
+	font-size: 1.6rem;
+	margin: 0 auto;
+	padding: 2rem;
+	background: var(--bg-window);
+	border-radius: 2rem;
+	box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
+.app-container, .reminder-card, input, button {
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
